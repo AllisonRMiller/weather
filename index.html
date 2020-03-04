@@ -10,25 +10,29 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="bstheme.css">
 </head>
 
 <body>
     <!-- Get Weather Start -->
-    <div class="container-fluid justify-content-center">
-        <div class="row">
-            <div class="col-12">
+    <div class="container-fluid justify-content-center bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
                 <div class="card text-center" id="getweather">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-light">
                         WEATHER APP
                     </div>
-                    <div class="card-body justify-content-center">
+                    <div class="card-body align-self-center">
                         <form class="form-inline">
                             <label class="sr-only" for="inlineFormInputZip">Zip Code</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputZip"
                                 placeholder="5 digit zip code">
 
-                            <button type="submit" class="btn btn-primary mb-2">Get
-                                Weather</button>
+                            <button class="btn btn-primary mb-2" id="wbut">
+                                Get Weather
+                            </button>
                         </form>
                     </div>
                     <!-- <div class="card-footer text-muted">
@@ -40,20 +44,20 @@
     </div>
     <!-- Get Weather End -->
     <!-- Show Weather Start -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-warning" role="alert" id="zipalert">
+    <div class="container-fluid bg-primary d-none">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="alert alert-danger" role="alert" id="zipalert">
                     Please enter a valid 5-digit zip code
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
+    <div class="container-fluid bg-primary d-none" id="appbody">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-light">
                         Location
                     </div>
                     <div class="card-body">
@@ -62,34 +66,39 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-light">
                         Temperature
                     </div>
                     <div class="card-body">
                         <h5 class="card-title" id="temp">Special title treatment</h5>
+                        <h5 class="card-text" id="rfeel">Feels like</h5>
+                        <button class="btn btn-primary mb-2" id="tbut">
+                            Get &#8451
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-light">
                         Current Weather
                     </div>
                     <div class="card-body">
                         <h5 class="card-title" id="cond">Special title treatment</h5>
+                        <h5 class="card-text" id="cond2">Conditions</h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-light">
                         Season
                     </div>
                     <div class="card-body">
@@ -112,6 +121,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
