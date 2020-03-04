@@ -13,6 +13,9 @@ var cur2 = "";
 var ct ="";
 var ct2 = "";
 var tb = "";
+//sunrise and sunset
+var sup = "";
+var sdown = "";
 //icon
 var ic = "";
 //
@@ -73,6 +76,7 @@ function getstuff(data) {
     getloc(data.name);
     getcur(data.weather);
     // getic(data.weather);
+    suns();
     showpage();
 }
 
@@ -145,6 +149,8 @@ function getcur(weather) {
 
 // }
 function suns(system){
-    
-
+    sup = new Date(system.sunrise);
+    sdown = new Date(system.sunset);
+    console.log(sup);
+    console.log(sdown);
 }
