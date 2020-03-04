@@ -9,9 +9,15 @@ var cur = "";
 var ic = "";
 //PLAY FETCH
 
-fetch(api.openweathermap.org/data/2.5/weather?zip={zip},{us}&appid=b9cb3cec77c14b5037dec0def981f206).then(getstuff(response))
-
+async function getdata(){
+fetch("api.openweathermap.org/data/2.5/weather?zip="+zip+",us&appid=b9cb3cec77c14b5037dec0def981f206").then((Response) =>{ return Response.json();}).then((data) =>{} )
+// return response
+}
 onclick
+
+function showpage(){
+    document.getElementsByClassName
+}
 
 function getstuff(response){
     gettemp(response.main);
