@@ -19,7 +19,7 @@ var sdown = "";
 //icon
 var ic = "";
 //
-// var err = "";
+var err = "";
 
 
 //WHAT HAPPENS ON CLICK??
@@ -30,14 +30,14 @@ document.getElementById("tbut").addEventListener("click", togglet);
 //Call API
 function getdata(e) {
     e.preventDefault()
-    console.log(zip.value)
+    // console.log(zip.value)
     fetch("https://api.openweathermap.org/data/2.5/weather?zip=" + zip.value + ",us&appid=b9cb3cec77c14b5037dec0def981f206")
-        .then((Response) => {
-            return Response.json();
-        })
-        .then((data) => getstuff(data))
-        .catch((error) => popalert(error));
-            // console.log(error);
+    .then((Response) => {
+        return Response.json();
+    })
+    .then((data) => getstuff(data))
+    .catch((err))
+            
         
     // return response
 }
@@ -52,13 +52,15 @@ function getdata(e) {
 
 
 //Error popup
-function popalert() {
-//     err = error;
-    var element = document.getElementById("zipalert");
-//     document.getElementById("zipalert").innerHTML = err;
-    element.classList.toggle("d-block");
-    // document.getElementByClassName("alert").setAttribute = "alert alert-warning".innerHTML = err;
-}
+// function popalert() {
+// //     err = error;
+// //     var element = document.getElementById("zipalert");
+// // //     document.getElementById("zipalert").innerHTML = err;
+// //     element.classList.toggle("d-block");
+// alert("Please try again <br>" + err)
+//     element.innerHTML = err;
+//     // document.getElementByClassName("alert").setAttribute = "alert alert-warning".innerHTML = err;
+// }
 
 //display app
 function showpage() {
@@ -70,14 +72,17 @@ function showpage() {
     // document.getElementById("appbody").setAttribute = "container-fluid";
 }
 
+
 //run functions
 function getstuff(data) {
+    if (data.cod ==200) {
     gettemp(data.main);
     getloc(data.name);
     getcur(data.weather);
     // getic(data.weather);
-    suns();
+    suns(data.sys);
     showpage();
+} else {alert("Please try again " + data.message);}
 }
 
 //pull location name and populate page
@@ -148,9 +153,17 @@ function getcur(weather) {
 //     else {document.getElementById("zipalert").setAttribute("class","alert alert-warning")
 
 // }
-function suns(system){
-    sup = new Date(system.sunrise);
-    sdown = new Date(system.sunset);
+function suns(sys){
+    sup = new Date();
+    sdown = new Date();
     console.log(sup);
     console.log(sdown);
+    sup.setTime(sys.sunrise*1000);
+    sdown.setTime(sys.sunset*1000);
+    document.getElementById("sunup").innerHTML = "Sunrise: " + sup.toLocaleTimeString("en-us");
+    document.getElementById("sundown").innerHTML = "Sunset: " + sdown.toLocaleTimeString("en-us");
+    console.log(sup);
+    console.log(sdown);
+    console.log(sys.sunrise);
+    console.log(sys.sunset);
 }
