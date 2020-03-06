@@ -1,3 +1,4 @@
+//input permits all characters currently because I'm looking at allowing canadian postal codes as valid input
 var zip = document.getElementById("inlineFormInputZip");
 //location name
 var loc = "";
